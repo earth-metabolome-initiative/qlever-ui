@@ -1004,6 +1004,16 @@ function getFormattedResultEntry(str, maxLength, column = undefined) {
       } else if (checkLink.endsWith('pdf') || checkLink.endsWith('doc') || checkLink.endsWith('docx')) {
         linkStart = '<span style="white-space: nowrap;"><a href="' + link + '" target="_blank"><i class="glyphicon glyphicon-file"></i>&nbsp;';
         linkEnd = '</a></span>';
+      }
+	// add describe query to links that do not have a web-page yet - specific to EMI (purl.org/emi/abox#) - DT
+	// temporary solution
+	// TODO: find a permanent solution with qlever team
+        else if (checkLink.startsWith("https://purl.org/emi/abox#")) {
+	const describeBaseUrl = window.location.origin + "/?query=DESCRIBE%20"; // add describe query tag in url
+	const describeUrl = `${describeBaseUrl}<${encodeURIComponent(link)}>` + "&exec=true"; // add execute in url
+	linkStart = '<span style="white-space: nowrap;"><a href="' + describeUrl + '" target="_blank"><i class="glyphicon glyphicon-file"></i>&nbsp;';
+        linkEnd = '</a></span>';
+	/////////////////////////////////////////////////////////////////
       } else {
         linkStart = '<span style="white-space: nowrap;"><a href="' + link + '" target="_blank"><i class="glyphicon glyphicon-link"></i>&nbsp;';
         linkEnd = '</a></span>';
