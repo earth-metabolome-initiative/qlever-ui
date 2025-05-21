@@ -1009,11 +1009,12 @@ function getFormattedResultEntry(str, maxLength, column = undefined) {
 	// temporary solution
 	// TODO: find a permanent solution with qlever team
         else if (checkLink.startsWith("https://purl.org/emi/abox#")) {
-	const describeBaseUrl = window.location.origin + "/?query=DESCRIBE%20"; // add describe query tag in url
-	const describeUrl = `${describeBaseUrl}<${encodeURIComponent(link)}>` + "&exec=true"; // add execute in url
-	linkStart = '<span style="white-space: nowrap;"><a href="' + describeUrl + '" target="_blank"><i class="glyphicon glyphicon-file"></i>&nbsp;';
+	const describeBaseUrl = window.location.origin + `/${SLUG}`; // add slug to base url
+	const describeUrl = `${describeBaseUrl}/?query=DESCRIBE%20<${encodeURIComponent(link)}>` + "&exec=true"; // add DESCRIBE and execute in url
+
+
+linkStart = '<span style="white-space: nowrap;"><a href="' + describeUrl + '" target="_blank"><i class="glyphicon glyphicon-file"></i>&nbsp;';
         linkEnd = '</a></span>';
-	/////////////////////////////////////////////////////////////////
       } else {
         linkStart = '<span style="white-space: nowrap;"><a href="' + link + '" target="_blank"><i class="glyphicon glyphicon-link"></i>&nbsp;';
         linkEnd = '</a></span>';
