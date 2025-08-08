@@ -35,7 +35,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('QLEVERUI_DEBUG', default=True)
+DEBUG = env.bool('QLEVERUI_DEBUG', default=False)
 # https://docs.djangoproject.com/en/5.1/ref/settings/#allowed-hosts
 
 # The values set in settings_secret.py have a higher precedence than the default values.
