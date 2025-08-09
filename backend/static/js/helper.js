@@ -1005,10 +1005,10 @@ function getFormattedResultEntry(str, maxLength, column = undefined) {
         linkStart = '<span style="white-space: nowrap;"><a href="' + link + '" target="_blank"><i class="glyphicon glyphicon-file"></i>&nbsp;';
         linkEnd = '</a></span>';
       }
-	// add describe query to links that do not have a web-page yet - specific to EMI (purl.org/emi/abox#) - DT
+	// add describe query to links that do not have a web-page yet - specific to EMI (w3id.org/emi/abox#) - DT
 	// temporary solution
 	// TODO: find a permanent solution with qlever team
-        else if (checkLink.startsWith("https://purl.org/emi/abox#")) {
+        else if (checkLink.startsWith("https://w3id.org/emi/abox#")) {
 	const describeBaseUrl = window.location.origin + `/${SLUG}`; // add slug to base url
 	const describeUrl = `${describeBaseUrl}/?query=DESCRIBE%20<${encodeURIComponent(link)}>` + "&exec=true"; // add DESCRIBE and execute in url
 
