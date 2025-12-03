@@ -34,10 +34,10 @@ __NOTE: You can skip this step if you already have a database file.__
 1. To set up the database, first, run a bash shell inside the QLever UI container as follows.
     ```shell
     docker run -it --rm \
-            -v "$(pwd)/db:/app/db" \
+            -v "/media/data/qlever/db:/app/db" \
             --entrypoint "bash" qleverui
     ```
-    Where `$(pwd)/db` is the path where QLever UI should store its database. If you want to use a different path, make sure to change this part in all subsequent `docker` commands.
+    Where `/media/data/qlever/db` is the path where QLever UI should store its database. If you want to use a different path, make sure to change this part in all subsequent `docker` commands.
 
 2. Create the empty database file with the following command.
     ```shell
@@ -54,7 +54,7 @@ You can now exit the container as QLever UI is finally ready to run.
 To run a QLever UI container use the following command:
 ```shell
 docker run -it -p 7000:7000 \
-           -v "$(pwd)/db:/app/db" \
+           -v "/media/data/qlever/db:/app/db" \
            --name qleverui \
            qleverui
 ``` 
